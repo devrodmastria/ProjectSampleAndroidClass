@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/admin_menu"
+        android:title="Admin"
+        android:icon="@drawable/ic_home_black_48px"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/health_menu"
+        android:title="Health"
+        android:icon="@drawable/ic_health_black_48px"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/energy_menu"
+        android:title="Energy"
+        android:icon="@drawable/ic_energy_settings_new_black_48px"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/protection_menu"
+        android:title="Protection"
+        android:icon="@drawable/ic_lock_black_48px"
+        app:showAsAction="always"/>
+</menu>
