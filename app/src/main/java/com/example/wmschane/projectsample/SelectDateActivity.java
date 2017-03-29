@@ -1,28 +1,25 @@
 package com.example.wmschane.projectsample;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class TemperaturesActivity extends AppCompatActivity {
+/**
+ * Created by Rodrigo on 3/28/2017.
+ */
+
+public class SelectDateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperatures);
+        setContentView(R.layout.activity_select_day);
 
-        Button addDate = (Button)findViewById(R.id.add_date_button);
-        addDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TemperaturesActivity.this, SelectDateActivity.class));
-            }
-        });
 
     }
 

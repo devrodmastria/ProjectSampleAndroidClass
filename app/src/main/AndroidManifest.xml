@@ -40,6 +40,11 @@
         <activity
             android:name=".TemperaturesActivity"
             android:parentActivityName=".EnergyActivity"/>
+
+        <activity
+            android:name=".SelectDateActivity"
+            android:parentActivityName=".EnergyActivity"/>
+
         <activity
             android:name=".RoomLightsActivity"
             android:parentActivityName=".EnergyActivity" />
