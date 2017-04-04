@@ -15,6 +15,7 @@ public class EnergyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_energy);
+        getSupportActionBar().setTitle("Pwr");
 
         Button manageLights = (Button)findViewById(R.id.manage_lights_button);
         manageLights.setOnClickListener(new View.OnClickListener() {

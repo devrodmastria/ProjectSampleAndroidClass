@@ -15,6 +15,7 @@ public class TemperaturesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperatures);
+        getSupportActionBar().setTitle("Temp");
 
         Button addDate = (Button)findViewById(R.id.add_date_button);
         addDate.setOnClickListener(new View.OnClickListener() {

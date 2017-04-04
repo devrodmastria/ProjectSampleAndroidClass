@@ -12,7 +12,7 @@ public class AdminActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Admin");
+        getSupportActionBar().setTitle("Adm");
         setContentView(R.layout.activity_admin);
     }
 

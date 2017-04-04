@@ -12,7 +12,7 @@ public class HealthActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Health");
+        getSupportActionBar().setTitle("Heart");
         setContentView(R.layout.activity_health);
 
     }

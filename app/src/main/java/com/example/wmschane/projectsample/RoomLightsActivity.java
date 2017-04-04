@@ -20,7 +20,7 @@ public class RoomLightsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Lights");
+        getSupportActionBar().setTitle("Light");
         setContentView(R.layout.room_lights_list);
 
         roomName1 = (TextView) findViewById(R.id.viewText1);

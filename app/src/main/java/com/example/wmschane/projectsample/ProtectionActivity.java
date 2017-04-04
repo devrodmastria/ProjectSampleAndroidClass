@@ -1,19 +1,51 @@
 package com.example.wmschane.projectsample;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
-public class ProtectionActivity extends AppCompatActivity {
+import com.example.wmschane.projectsample.dummy.AlertsContent;
+import com.example.wmschane.projectsample.dummy.RoomContent;
+
+public class ProtectionActivity extends AppCompatActivity
+        implements RoomFragment.OnListFragmentInteractionListener, AlertsFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Protection");
+        getSupportActionBar().setTitle("Safe");
         setContentView(R.layout.activity_protection);
+
+        Button viewRoom =(Button)findViewById(R.id.viewRoomButton);
+        viewRoom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.activity_protection, new RoomFragment())
+                        .commit();
+            }
+        });
+
+        Button alerts = (Button)findViewById(R.id.alertsHistoryButton);
+        alerts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getFragmentManager().beginTransaction()
+                        .replace(R.id.activity_protection, new AlertsFragment())
+                        .commit();
+
+            }
+        });
     }
 
     @Override
@@ -41,5 +73,15 @@ public class ProtectionActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onListFragmentInteraction(RoomContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(AlertsContent.DummyItem item) {
+
     }
 }
