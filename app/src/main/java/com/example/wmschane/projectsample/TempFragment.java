@@ -33,7 +33,7 @@ public class TempFragment extends Fragment implements OnClickListener{
     // TODO: Rename and change types of parameters
 
 
-    private float DegreeValue;
+    private double DegreeValue;
     Button TempUP;
     Button TempDown;
     EditText Degree;
@@ -109,16 +109,31 @@ public class TempFragment extends Fragment implements OnClickListener{
     public void onClick(View v){
 
 
+        
+
+
         switch (v.getId()){
             case R.id.TempPlus:
                 DegreeValue = Float.parseFloat(Degree.getText().toString());
+                if(DegreeValue > 112){
+                    DegreeValue = 75;
+                }
+                if(DegreeValue < 30){
+                    DegreeValue = 75;
+                }
                 DegreeValue = DegreeValue + 1.0f;
-                Degree.setText(Float.toString(DegreeValue));
+                Degree.setText(Double.toString(DegreeValue));
                 break;
             case R.id.TempMinus:
                 DegreeValue = Float.parseFloat(Degree.getText().toString());
+                if(DegreeValue > 112){
+                    DegreeValue = 75;
+                }
+                if(DegreeValue < 30){
+                    DegreeValue = 75;
+                }
                 DegreeValue = DegreeValue - 1.0f;
-                Degree.setText(Float.toString(DegreeValue));
+                Degree.setText(Double.toString(DegreeValue));
                 break;
         }
     }

@@ -52,7 +52,6 @@
 
     <EditText
         android:layout_height="wrap_content"
-        android:inputType="text"
         android:ems="3"
         android:id="@+id/TempDegree"
         android:singleLine="false"
@@ -60,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_alignBottom="@+id/TempPlus"
         android:layout_centerHorizontal="true"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:inputType="number" />
 
 </RelativeLayout>
