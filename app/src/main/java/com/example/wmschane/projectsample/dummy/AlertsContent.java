@@ -1,5 +1,7 @@
 package com.example.wmschane.projectsample.dummy;
 
+import android.content.Intent;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +40,17 @@ public class AlertsContent {
     }
 
     private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Alert History Item " + position, makeDetails(position));
+
+        String randomAlert = "alert";
+
+        Double randNumber = Math.random() * 10;
+        if (position < randNumber){
+            randomAlert = "Cat detected in the backyard";
+        } else {
+            randomAlert = "Main package detected by the front door";
+        }
+
+        return new DummyItem(String.valueOf(position), randomAlert, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
