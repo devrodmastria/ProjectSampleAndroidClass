@@ -26,7 +26,7 @@ public class RoomLightsActivity extends AppCompatActivity {
         roomName1 = (TextView) findViewById(R.id.viewText1);
         roomCheck1 = (CheckBox) findViewById(R.id.checkBox1);
         roomName1.setText("Room 1");
-        roomCheck1.setChecked(true);
+        roomCheck1.setChecked(false);
 
         roomName2 = (TextView) findViewById(R.id.viewText2);
         roomCheck2 = (CheckBox) findViewById(R.id.checkBox2);

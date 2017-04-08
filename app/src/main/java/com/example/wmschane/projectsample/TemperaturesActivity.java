@@ -1,5 +1,6 @@
 package com.example.wmschane.projectsample;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,16 +15,21 @@ public class TemperaturesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_temperatures);
-        getSupportActionBar().setTitle("Temp");
 
-        Button addDate = (Button)findViewById(R.id.add_date_button);
-        addDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(TemperaturesActivity.this, SelectDateActivity.class));
-            }
-        });
+        getSupportActionBar().setTitle("Temp");
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_temperatures);
+//        getSupportActionBar().setTitle("Temp");
+//
+//        Button addDate = (Button)findViewById(R.id.add_date_button);
+//        addDate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                startActivity(new Intent(TemperaturesActivity.this, SelectDateActivity.class));
+//            }
+//        });
+
+
 
     }
 
