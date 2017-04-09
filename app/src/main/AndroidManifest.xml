@@ -16,7 +16,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -39,10 +38,6 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TemperaturesActivity"
-            android:parentActivityName=".EnergyActivity"/>
-
-        <activity
-            android:name=".SelectDateActivity"
             android:parentActivityName=".EnergyActivity"/>
 
         <activity

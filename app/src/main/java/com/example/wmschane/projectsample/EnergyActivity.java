@@ -15,15 +15,12 @@ public class EnergyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-//        setContentView((R.layout.activity_energy));
+        getSupportActionBar().setTitle("Pwr");
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
         transaction.replace(android.R.id.content, new EnergyFragment());
         transaction.commit();
-
-        getSupportActionBar().setTitle("Pwr");
 
     }
 

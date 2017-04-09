@@ -11,6 +11,14 @@
     tools:context="com.example.wmschane.projectsample.AdminActivity">
 
     <Button
+        android:text="Health"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:id="@+id/healthButton"
+        android:layout_width="wrap_content"
+        android:layout_above="@+id/button"
+        android:layout_alignStart="@+id/button" />
+    <Button
         android:text="Energy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,12 +36,5 @@
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="Health"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="14dp"
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_alignStart="@+id/button" />
+
 </RelativeLayout>

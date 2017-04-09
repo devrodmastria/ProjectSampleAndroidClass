@@ -1,5 +1,6 @@
 package com.example.wmschane.projectsample;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,19 +9,23 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.example.wmschane.projectsample.dummy.AlertsContent;
+import com.example.wmschane.projectsample.dummy.RoomContent;
 
 /**
  * Created by Rodrigo on 3/14/2017.
  */
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+    implements AlertsFragment.OnListFragmentInteractionListener, RoomFragment.OnListFragmentInteractionListener {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setTitle("Home");
-
+//        getSupportActionBar().setTitle("Home");
     }
 
     @Override
@@ -32,21 +37,41 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        transaction.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_left);
         switch (item.getItemId()) {
             case R.id.admin_menu:
-                startActivity(new Intent(this, AdminActivity.class));
+                transaction.replace(android.R.id.content, new AdminFragment());
+                transaction.commit();
+//                startActivity(new Intent(this, AdminActivity.class));
                 return true;
             case R.id.health_menu:
-                startActivity(new Intent(this, HealthActivity.class));
+                Toast.makeText(this, "Nope Health", Toast.LENGTH_SHORT).show();
+//                startActivity(new Intent(this, HealthActivity.class));
                 return true;
             case R.id.energy_menu:
-                startActivity(new Intent(this, EnergyActivity.class));
+                transaction.replace(android.R.id.content, new EnergyFragment());
+                transaction.commit();
+//                startActivity(new Intent(this, EnergyActivity.class));
                 return true;
             case R.id.protection_menu:
-                startActivity(new Intent(this, ProtectionActivity.class));
+                transaction.replace(android.R.id.content, new ProtectionFragment());
+                transaction.commit();
+//                startActivity(new Intent(this, ProtectionActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onListFragmentInteraction(RoomContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(AlertsContent.DummyItem item) {
+
     }
 }

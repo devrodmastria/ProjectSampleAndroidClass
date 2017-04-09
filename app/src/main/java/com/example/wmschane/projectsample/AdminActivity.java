@@ -1,5 +1,6 @@
 package com.example.wmschane.projectsample;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,7 +14,11 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("Adm");
-        setContentView(R.layout.activity_admin);
+
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        transaction.replace(android.R.id.content, new AdminFragment());
+        transaction.commit();
     }
 
     @Override
