@@ -115,10 +115,10 @@ public class TempFragment extends Fragment implements OnClickListener{
         switch (v.getId()){
             case R.id.TempPlus:
                 DegreeValue = Float.parseFloat(Degree.getText().toString());
-                if(DegreeValue > 112){
+                if(DegreeValue > 90){
                     DegreeValue = 75;
                 }
-                if(DegreeValue < 30){
+                if(DegreeValue < 60){
                     DegreeValue = 75;
                 }
                 DegreeValue = DegreeValue + 1.0f;
