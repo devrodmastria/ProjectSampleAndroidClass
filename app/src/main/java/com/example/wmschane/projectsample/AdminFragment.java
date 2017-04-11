@@ -25,7 +25,7 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                SelectDateFragment newFrag = new SelectDateFragment();
+                DayListFragment newFrag = new DayListFragment();
                 Bundle args = new Bundle();
                 args.putString("from", "admin");
                 newFrag.setArguments(args);

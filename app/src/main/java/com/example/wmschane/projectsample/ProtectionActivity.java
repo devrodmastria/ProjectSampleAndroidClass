@@ -21,7 +21,7 @@ public class ProtectionActivity extends AppCompatActivity implements RoomFragmen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Safe");
+        getSupportActionBar().setTitle("Protection");
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();

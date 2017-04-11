@@ -17,7 +17,7 @@ public class AdminActivity extends AppCompatActivity {
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.adminPanel, new AdminFragment());
+        transaction.replace(android.R.id.content, new AdminFragment());
         transaction.commit();
     }
 

@@ -11,7 +11,7 @@
     tools:context="com.example.wmschane.projectsample.HealthActivity">
 
     <Button
-        android:text="View Alert History"
+        android:text="View Health Alert History"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

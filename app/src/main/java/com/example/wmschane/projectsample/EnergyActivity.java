@@ -15,7 +15,7 @@ public class EnergyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Pwr");
+        getSupportActionBar().setTitle("Energy");
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
