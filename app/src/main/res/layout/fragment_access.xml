@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="30sp"
+        android:text="Set Entry Locks"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Front"
+                android:id="@+id/viewText1"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="Locked"
+                android:id="@+id/viewOnText1"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Back"
+                android:id="@+id/viewText2"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="Locked"
+                android:id="@+id/viewOnText2"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Garage"
+                android:id="@+id/viewText3"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="Locked"
+                android:id="@+id/viewOnText3"
+                android:layout_column="3" />
+
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -16,7 +16,7 @@ import android.widget.RelativeLayout;
 import com.example.wmschane.projectsample.dummy.AlertsContent;
 import com.example.wmschane.projectsample.dummy.RoomContent;
 
-public class ProtectionActivity extends AppCompatActivity {
+public class ProtectionActivity extends AppCompatActivity implements RoomFragment.OnListFragmentInteractionListener, AlertsFragment.OnListFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,4 +56,13 @@ public class ProtectionActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onListFragmentInteraction(RoomContent.DummyItem item) {
+
+    }
+
+    @Override
+    public void onListFragmentInteraction(AlertsContent.DummyItem item) {
+
+    }
 }

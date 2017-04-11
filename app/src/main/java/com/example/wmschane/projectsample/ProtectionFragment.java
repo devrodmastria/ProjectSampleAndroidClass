@@ -41,6 +41,18 @@ public class ProtectionFragment extends Fragment{
             }
         });
 
+        Button access = (Button)view.findViewById(R.id.accessButton);
+        access.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentTransaction transaction;
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, new AccessFragment());
+                transaction.commit();
+            }
+        });
+
         return view;
     }
 

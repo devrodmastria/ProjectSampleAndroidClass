@@ -16,15 +16,15 @@
         android:layout_marginBottom="14dp"
         android:id="@+id/healthButton"
         android:layout_width="wrap_content"
-        android:layout_above="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_above="@+id/energyButton"
+        android:layout_alignStart="@+id/energyButton" />
     <Button
         android:text="Energy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/button"
+        android:id="@+id/energyButton"
         android:layout_margin="16dp"/>
 
     <Button
@@ -32,8 +32,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button"
+        android:id="@+id/protectionButton"
+        android:layout_below="@+id/energyButton"
         android:layout_centerHorizontal="true" />
 
 

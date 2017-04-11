@@ -37,6 +37,23 @@ public class AdminFragment extends Fragment {
                 transaction.commit();
             }
         });
+        Button energyBtn = (Button)view.findViewById(R.id.energyButton);
+        energyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+//                EnergyAdminFragment newFrag = new EnergyAdminFragment();
+//                Bundle args = new Bundle();
+//                args.putString("from", "admin");
+//                newFrag.setArguments(args);
+//
+//                FragmentTransaction transaction;
+//                transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(android.R.id.content, newFrag);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+            }
+        });
 
         return view;
     }

@@ -2,6 +2,7 @@ package com.example.wmschane.projectsample;
 
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,18 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        SharedPreferences preferences = getSharedPreferences("authentic", MODE_PRIVATE);
+        if(preferences.getBoolean("authentic", true)){ // TODO change default to false after implementation of login
+
+            transaction.replace(R.id.mainFrame, new AlertsFragment());
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }else{
+            startActivity(new Intent(this, LoginActivity.class));
+        }
 //        getSupportActionBar().setTitle("Home");
     }
 
@@ -37,28 +50,28 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        FragmentTransaction transaction;
-        transaction = getFragmentManager().beginTransaction();
-        transaction.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_left);
+//        FragmentTransaction transaction;
+//        transaction = getFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_left);
         switch (item.getItemId()) {
             case R.id.admin_menu:
-                transaction.replace(android.R.id.content, new AdminFragment());
-                transaction.commit();
-//                startActivity(new Intent(this, AdminActivity.class));
+//                transaction.replace(R.id.mainFrame, new AdminFragment());
+//                transaction.commit();
+                startActivity(new Intent(this, AdminActivity.class));
                 return true;
             case R.id.health_menu:
-                Toast.makeText(this, "Nope Health", Toast.LENGTH_SHORT).show();
-//                startActivity(new Intent(this, HealthActivity.class));
+//                Toast.makeText(this, "Nope Health", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, HealthActivity.class));
                 return true;
             case R.id.energy_menu:
-                transaction.replace(android.R.id.content, new EnergyFragment());
-                transaction.commit();
-//                startActivity(new Intent(this, EnergyActivity.class));
+//                transaction.replace(R.id.mainFrame, new EnergyFragment());
+//                transaction.commit();
+                startActivity(new Intent(this, EnergyActivity.class));
                 return true;
             case R.id.protection_menu:
-                transaction.replace(android.R.id.content, new ProtectionFragment());
-                transaction.commit();
-//                startActivity(new Intent(this, ProtectionActivity.class));
+//                transaction.replace(R.id.mainFrame, new ProtectionFragment());
+//                transaction.commit();
+                startActivity(new Intent(this, ProtectionActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
