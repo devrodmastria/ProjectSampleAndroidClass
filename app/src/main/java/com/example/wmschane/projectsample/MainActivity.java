@@ -6,11 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.wmschane.projectsample.dummy.AlertsContent;
 import com.example.wmschane.projectsample.dummy.RoomContent;
@@ -22,10 +20,54 @@ import com.example.wmschane.projectsample.dummy.RoomContent;
 public class MainActivity extends AppCompatActivity
     implements AlertsFragment.OnListFragmentInteractionListener, RoomFragment.OnListFragmentInteractionListener {
 
+    ProtectionDatabase pd;
+    TempDatabase td;
+    AppliancesDatabase ad;
+    EnergyDatabase ed;
+    MainDataBase md;
+
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        pd = new ProtectionDatabase(getApplicationContext());
+        td= new TempDatabase(getApplicationContext());
+        ad = new AppliancesDatabase(getApplicationContext());
+        ed = new EnergyDatabase(getApplicationContext());
+        md = new MainDataBase(getApplicationContext());
+
+
+        boolean DaySet = td.insertSetting("Sunday","70","70");
+        DaySet = td.insertSetting("Monday","70","70");
+        DaySet = td.insertSetting("Tuesday","70","70");
+        DaySet = td.insertSetting("Wednesday","70","70");
+        DaySet = td.insertSetting("Thursday","70","70");
+        DaySet = td.insertSetting("Friday","70","70");
+        DaySet = td.insertSetting("Saturday","70","70");
+
+        boolean LightSet;
+        for(int i = 1; i < 15; i++){
+            LightSet = ed.insertSetting("Room "+ i,"off");
+        }
+
+        boolean ProtectionSet;
+        for(int i = 1; i < 15; i++){
+            ProtectionSet = pd.insertSetting("Area "+ i,"off");
+        }
+
+        boolean ApplSet;
+        for(int i = 1; i < 15; i++){
+            ApplSet = ad.insertSetting("Appliance "+ i,"off");
+        }
+
+
+
+
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();

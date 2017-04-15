@@ -12,9 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 
 import com.example.wmschane.projectsample.dummy.AlertsContent;
 import com.example.wmschane.projectsample.dummy.RoomContent;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProtectionActivity extends AppCompatActivity implements RoomFragment.OnListFragmentInteractionListener, AlertsFragment.OnListFragmentInteractionListener{
 

@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.SimpleAdapter;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ProtectionFragment extends Fragment{
 
@@ -15,6 +19,13 @@ public class ProtectionFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_protection, container, false);
+
+
+//        ArrayList<HashMap<String, Object>> data = db.getSettings(null);
+//
+//        SimpleAdapter adapter = new SimpleAdapter(this, data, resource, from, to);
+//        listView2.setAdapter(adapter);
+
 
         Button viewRoom =(Button)view.findViewById(R.id.viewRoomButton);
         viewRoom.setOnClickListener(new View.OnClickListener() {
