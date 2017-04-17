@@ -15,11 +15,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "settings";
     public static final String PK_COLUMN_ROOM_NAME = "room";
     public static final String COLUMN_CHECKBOX_NAME = "checkbox";
-    public static final String COLUMN_ONTEXT_NAME = "ontext";
+    public static final String COLUMN_CONTEXT_NAME = "context";
+    public static final int DATABASE_VERSION = 4;
 
     public DBHelper(Context context)
     {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -27,9 +28,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
         boolean res;
         db.execSQL("create table " + TABLE_NAME + " (" +
-                        PK_COLUMN_ROOM_NAME + " text primary key, " +
-                        COLUMN_CHECKBOX_NAME + " text, " +
-                        COLUMN_ONTEXT_NAME + " text)"
+                PK_COLUMN_ROOM_NAME + " text primary key, " +
+                COLUMN_CHECKBOX_NAME + " text, " +
+                COLUMN_CONTEXT_NAME + " text)"
         );
     }
 
@@ -45,9 +46,11 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PK_COLUMN_ROOM_NAME, room);
+
         if (checkbox)contentValues.put(COLUMN_CHECKBOX_NAME, "true");
         else contentValues.put(COLUMN_CHECKBOX_NAME, "false");
-        contentValues.put(COLUMN_ONTEXT_NAME, on);
+
+        contentValues.put(COLUMN_CONTEXT_NAME, on);
         db.insert(TABLE_NAME, null, contentValues);
         return true;
     }
@@ -65,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(PK_COLUMN_ROOM_NAME, room);
         if (checkbox)contentValues.put(COLUMN_CHECKBOX_NAME, "true");
         else contentValues.put(COLUMN_CHECKBOX_NAME, "false");
-        contentValues.put(COLUMN_ONTEXT_NAME, on);
+        contentValues.put(COLUMN_CONTEXT_NAME, on);
         db.update(TABLE_NAME, contentValues, PK_COLUMN_ROOM_NAME + " = ? ",
                 new String[] { room } );
         return true;
@@ -102,7 +105,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 map.put(COLUMN_CHECKBOX_NAME,true);
             else
                 map.put(COLUMN_CHECKBOX_NAME,false);
-            map.put(COLUMN_ONTEXT_NAME,res.getString(res.getColumnIndex(COLUMN_ONTEXT_NAME)));
+            map.put(COLUMN_CONTEXT_NAME,res.getString(res.getColumnIndex(COLUMN_CONTEXT_NAME)));
             settings_list.add(map);
             res.moveToNext();
         }

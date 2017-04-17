@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity
     AppliancesDatabase ad;
     EnergyDatabase ed;
     MainDataBase md;
+    DBHelper db; // is the sample class working right?
 
 
 
@@ -41,33 +43,36 @@ public class MainActivity extends AppCompatActivity
         ed = new EnergyDatabase(getApplicationContext());
         md = new MainDataBase(getApplicationContext());
 
+        db = new DBHelper(getApplicationContext());
+        db.updateSetting("laundry", true, "1");
+        Log.d("logbase", "Data "+ db.getSettings("laundry"));
 
-        boolean DaySet = td.insertSetting("Sunday","70","70");
-        DaySet = td.insertSetting("Monday","70","70");
-        DaySet = td.insertSetting("Tuesday","70","70");
-        DaySet = td.insertSetting("Wednesday","70","70");
-        DaySet = td.insertSetting("Thursday","70","70");
-        DaySet = td.insertSetting("Friday","70","70");
-        DaySet = td.insertSetting("Saturday","70","70");
+        boolean DaySet = td.updateSetting("Sunday","70","70");
+        DaySet = td.updateSetting("Monday","70","70");
+        DaySet = td.updateSetting("Tuesday","70","70");
+        DaySet = td.updateSetting("Wednesday","70","70");
+        DaySet = td.updateSetting("Thursday","70","70");
+        DaySet = td.updateSetting("Friday","70","70");
+        DaySet = td.updateSetting("Saturday","70","70");
 
         boolean LightSet;
         for(int i = 1; i < 15; i++){
-            LightSet = ed.insertSetting("Room "+ i,"off");
+            LightSet = ed.updateSetting("Room "+ i,"off");
+            Log.d("tag", "Boolean DB LightSet " + LightSet);
         }
+
 
         boolean ProtectionSet;
         for(int i = 1; i < 15; i++){
-            ProtectionSet = pd.insertSetting("Area "+ i,"off");
+            ProtectionSet = pd.updateSetting("Area "+ i,"off");
+            Log.d("tag", "Boolean DB ProtectionSet " + ProtectionSet);
         }
 
         boolean ApplSet;
         for(int i = 1; i < 15; i++){
-            ApplSet = ad.insertSetting("Appliance "+ i,"off");
+            ApplSet = ad.updateSetting("Appliance "+ i,"off");
+            Log.d("tag", "Boolean DB ApplSet " + ApplSet);
         }
-
-
-
-
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();

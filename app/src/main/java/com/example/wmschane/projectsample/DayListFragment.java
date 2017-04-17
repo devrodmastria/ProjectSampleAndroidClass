@@ -24,8 +24,12 @@ public class DayListFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_days, container, false);
 
+
+
         ListView days = (ListView)view.findViewById(R.id.daysList);
         //TODO database and listview
+
+
 
         Button add = (Button)view.findViewById(R.id.adDayButton);
         add.setOnClickListener(new View.OnClickListener() {

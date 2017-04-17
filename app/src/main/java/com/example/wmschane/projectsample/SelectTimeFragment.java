@@ -40,6 +40,9 @@ public class SelectTimeFragment extends Fragment {
 
                 //TODO save data to SQLite database
 
+
+
+
                 FragmentTransaction transaction;
                 transaction = getFragmentManager().beginTransaction();
                 switch (from){
@@ -52,6 +55,12 @@ public class SelectTimeFragment extends Fragment {
                         transaction.replace(android.R.id.content, new EnergyFragment());
                         transaction.addToBackStack(null);
                         transaction.commit();
+                        break;
+                    case "health":
+                        transaction.replace(android.R.id.content, new EnergyFragment());
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                        break;
                 }
 
             }

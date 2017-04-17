@@ -10,15 +10,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class TempDatabase extends SQLiteOpenHelper {
+public class AppliancesDatabase extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "Temperature.db";
-    public static final String TABLE_NAME = "EnergyTemp";
-    public static final String PK_COLUMN_DAYOFWEEK = "DOW";
-    public static final String COLUMN_DATETIME = "Day";
-    public static final String COLUMN_NIGHTTIME = "Night";
+    public static final String DATABASE_NAME = "Appliances.db";
+    public static final String TABLE_NAME = "EnergyAppliances";
+    public static final String PK_COLUMN_APL_NAME = "ApplianceName";
+    public static final String COLUMN_APL_SETTING = "ApplianceSetting";
 
-    public TempDatabase(Context context)
+    public AppliancesDatabase(Context context)
     {
         super(context, DATABASE_NAME, null, DBHelper.DATABASE_VERSION);
     }
@@ -28,9 +27,8 @@ public class TempDatabase extends SQLiteOpenHelper {
 
         boolean res;
         db.execSQL("create table " + TABLE_NAME + " (" +
-                        PK_COLUMN_DAYOFWEEK + " text primary key, " +
-                        COLUMN_DATETIME + " text, " +
-                        COLUMN_NIGHTTIME + " text)"
+                PK_COLUMN_APL_NAME + " text primary key, " +
+                COLUMN_APL_SETTING + " text)"
         );
     }
 
@@ -41,13 +39,12 @@ public class TempDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertSetting  (String DayOfWeek, String Day, String Night)
+    public boolean insertSetting  (String AplName, String AplSetting)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(PK_COLUMN_DAYOFWEEK, DayOfWeek);
-        contentValues.put(COLUMN_DATETIME, Day);
-        contentValues.put(COLUMN_NIGHTTIME, Night);
+        contentValues.put(PK_COLUMN_APL_NAME, AplName);
+        contentValues.put(COLUMN_APL_SETTING, AplSetting);
         db.insert(TABLE_NAME, null, contentValues);
         return true;
     }
@@ -58,23 +55,22 @@ public class TempDatabase extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateSetting (String DayOfWeek, String Day, String Night)
+    public boolean updateSetting (String AplName, String AplSetting)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COLUMN_DATETIME, Day);
-        contentValues.put(COLUMN_NIGHTTIME, Night);
-        db.update(TABLE_NAME, contentValues, PK_COLUMN_DAYOFWEEK + " = ? ",
-                new String[] { DayOfWeek } );
+        contentValues.put(COLUMN_APL_SETTING, AplSetting);
+        db.update(TABLE_NAME, contentValues, PK_COLUMN_APL_NAME + " = ? ",
+                new String[] { AplName} );
         return true;
     }
 
-    public Integer deleteSetting (String DayOfWeek)
+    public Integer deleteSetting (String AplName)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME,
-                PK_COLUMN_DAYOFWEEK + " = ? ",
-                new String[] { DayOfWeek });
+                PK_COLUMN_APL_NAME + " = ? ",
+                new String[] { AplName });
     }
 
     public ArrayList<HashMap<String, Object>> getSettings(String pkVal)
@@ -95,9 +91,8 @@ public class TempDatabase extends SQLiteOpenHelper {
 
             map = new HashMap<>();
 
-            map.put(PK_COLUMN_DAYOFWEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAYOFWEEK)));
-            map.put(COLUMN_DATETIME,res.getString(res.getColumnIndex(COLUMN_DATETIME)));
-            map.put(COLUMN_NIGHTTIME,res.getString(res.getColumnIndex(COLUMN_NIGHTTIME)));
+            map.put(PK_COLUMN_APL_NAME, res.getString(res.getColumnIndex(PK_COLUMN_APL_NAME)));
+            map.put(COLUMN_APL_SETTING,res.getString(res.getColumnIndex(COLUMN_APL_SETTING)));
             settings_list.add(map);
             res.moveToNext();
         }

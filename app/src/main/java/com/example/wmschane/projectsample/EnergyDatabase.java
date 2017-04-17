@@ -12,14 +12,14 @@ import java.util.HashMap;
 
 public class EnergyDatabase extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "FinalProject.db";
+    public static final String DATABASE_NAME = "Energy.db";
     public static final String TABLE_NAME = "EnergyRoom";
     public static final String PK_COLUMN_ROOM_NAME = "Room";
     public static final String COLUMN_ROOMSTATE = "State";
 
     public EnergyDatabase(Context context)
     {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DBHelper.DATABASE_VERSION);
     }
 
     @Override
@@ -27,8 +27,8 @@ public class EnergyDatabase extends SQLiteOpenHelper {
 
         boolean res;
         db.execSQL("create table " + TABLE_NAME + " (" +
-                        PK_COLUMN_ROOM_NAME + " text primary key, " +
-                        COLUMN_ROOMSTATE + " text)"
+                PK_COLUMN_ROOM_NAME + " text primary key, " +
+                COLUMN_ROOMSTATE + " text)"
         );
     }
 
