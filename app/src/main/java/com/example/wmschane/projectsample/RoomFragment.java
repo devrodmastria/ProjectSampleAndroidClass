@@ -68,7 +68,11 @@ public class RoomFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new MyRoomRecyclerViewAdapter(RoomContent.ITEMS, mListener));
+
+
+
         }
+
         return view;
     }
 

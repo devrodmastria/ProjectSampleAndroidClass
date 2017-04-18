@@ -25,7 +25,7 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                DayListFragment newFrag = new DayListFragment();
+                AdminHealthFragment newFrag = new AdminHealthFragment();
                 Bundle args = new Bundle();
                 args.putString("from", "admin");
                 newFrag.setArguments(args);
@@ -42,16 +42,34 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-//                EnergyAdminFragment newFrag = new EnergyAdminFragment();
-//                Bundle args = new Bundle();
-//                args.putString("from", "admin");
-//                newFrag.setArguments(args);
-//
-//                FragmentTransaction transaction;
-//                transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(android.R.id.content, newFrag);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+                AdminEnergyFragment newFrag = new AdminEnergyFragment();
+                Bundle args = new Bundle();
+                args.putString("from", "admin");
+                newFrag.setArguments(args);
+
+                FragmentTransaction transaction;
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        Button protectionBtn = (Button)view.findViewById(R.id.protectionButton);
+        protectionBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AdminProtectFragment newFrag = new AdminProtectFragment();
+                Bundle args = new Bundle();
+                args.putString("from", "admin");
+                newFrag.setArguments(args);
+
+                FragmentTransaction transaction;
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFrag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 

@@ -33,7 +33,7 @@
                 android:layout_column="2" />
 
             <TextView
-                android:text="Locked"
+                android:text="Unlocked"
                 android:id="@+id/viewOnText1"
                 android:layout_column="3" />
 
@@ -53,7 +53,7 @@
                 android:layout_column="2" />
 
             <TextView
-                android:text="Locked"
+                android:text="Unlocked"
                 android:id="@+id/viewOnText2"
                 android:layout_column="3" />
 
@@ -73,7 +73,7 @@
                 android:layout_column="2" />
 
             <TextView
-                android:text="Locked"
+                android:text="Unlocked"
                 android:id="@+id/viewOnText3"
                 android:layout_column="3" />
 

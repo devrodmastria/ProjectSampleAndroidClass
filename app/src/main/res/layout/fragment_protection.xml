@@ -15,18 +15,20 @@
 
     <Button
         android:text="Entry Access"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/accessButton"
         android:layout_below="@+id/alertsHistoryButton"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignStart="@+id/alertsHistoryButton"
+        android:layout_alignEnd="@+id/alertsHistoryButton" />
 
     <Button
         android:text="View rooms"
         android:layout_height="wrap_content"
         android:id="@+id/viewRoomButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_above="@+id/alertsHistoryButton"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignStart="@+id/alertsHistoryButton"
+        android:layout_alignEnd="@+id/alertsHistoryButton" />
 
 </RelativeLayout>

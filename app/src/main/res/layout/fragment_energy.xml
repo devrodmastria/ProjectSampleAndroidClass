@@ -6,29 +6,32 @@
 
     <Button
         android:text="Manage Lights"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/manage_lights_button"
-        android:layout_margin="16dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignStart="@+id/manage_appliances_button"
+        android:layout_alignEnd="@+id/manage_appliances_button" />
 
     <Button
         android:text="Manage Appliances"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/manage_appliances_button"
         android:layout_below="@+id/manage_lights_button"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:text="Set Temperature"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
+        android:layout_marginBottom="16dp"
         android:id="@+id/set_temperature_button"
         android:layout_above="@+id/manage_lights_button"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignStart="@+id/manage_lights_button"
+        android:layout_alignEnd="@+id/manage_lights_button" />
 
 </RelativeLayout>

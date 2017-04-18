@@ -1,6 +1,5 @@
 package com.example.wmschane.projectsample;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +20,7 @@ public class RoomLightsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setTitle("Light");
-        setContentView(R.layout.room_lights_list);
+        setContentView(R.layout.fragment_lights);
 
         roomName1 = (TextView) findViewById(R.id.viewText1);
         roomCheck1 = (CheckBox) findViewById(R.id.checkBox1);

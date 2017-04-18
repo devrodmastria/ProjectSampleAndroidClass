@@ -13,19 +13,20 @@
     <Button
         android:text="Health"
         android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         android:layout_marginBottom="14dp"
         android:id="@+id/healthButton"
-        android:layout_width="wrap_content"
         android:layout_above="@+id/energyButton"
-        android:layout_alignStart="@+id/energyButton" />
+        android:layout_alignStart="@+id/protectionButton"
+        android:layout_alignEnd="@+id/protectionButton" />
     <Button
         android:text="Energy"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:id="@+id/energyButton"
-        android:layout_margin="16dp"/>
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@+id/healthButton"
+        android:layout_alignStart="@+id/healthButton" />
 
     <Button
         android:text="Protection"

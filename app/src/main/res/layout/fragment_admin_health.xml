@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp">
+
+    <TextView
+        android:text="Health - arm times"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="24sp"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="On"
+                android:id="@+id/viewTextB"
+                android:layout_width="wrap_content"
+                android:layout_column="3"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:text="Off"
+                android:id="@+id/viewTextC"
+                android:layout_column="6"
+                android:layout_gravity="center"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Sun"
+                android:id="@+id/viewText1"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegree"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeNightSunday"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="4"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Mon"
+                android:id="@+id/viewText2"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeMondayDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeMondayNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Tue"
+                android:id="@+id/viewText3"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeTuesdayDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+            <EditText
+                android:id="@+id/TempDegreeTuesdayNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Wed"
+                android:id="@+id/viewText4"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeWedDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+            <EditText
+                android:id="@+id/TempDegreeWedNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Thu"
+                android:id="@+id/viewText5"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeThuDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+            <EditText
+                android:id="@+id/TempDegreeThuNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Fri"
+                android:id="@+id/viewText6"
+                android:layout_column="1" />
+
+
+            <EditText
+                android:id="@+id/TempDegreeFriDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+            <EditText
+                android:id="@+id/TempDegreeFriNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Sun"
+                android:id="@+id/viewText7"
+                android:layout_column="1" />
+
+            <EditText
+                android:id="@+id/TempDegreeSunDay"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="12:00AM"
+                android:textAlignment="center"
+                android:layout_column="3" />
+
+            <EditText
+                android:id="@+id/TempDegreeSunNight"
+                android:labelFor="@+id/TempDegree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:text="11:59PM"
+                android:textAlignment="center"
+                android:layout_column="6" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
