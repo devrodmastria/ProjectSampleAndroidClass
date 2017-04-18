@@ -36,18 +36,10 @@
         <activity
             android:name=".EnergyActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".TemperaturesActivity"
-            android:parentActivityName=".EnergyActivity"/>
 
         <activity
             android:name=".RoomLightsActivity"
             android:parentActivityName=".EnergyActivity" />
-        <activity
-            android:name=".AppliancesActivity"
-            android:parentActivityName=".EnergyActivity">
-
-        </activity>
     </application>
 
 </manifest>

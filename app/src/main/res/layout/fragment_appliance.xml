@@ -1,14 +1,306 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wmschane.projectsample.ApplianceFragment">
+    android:orientation="vertical"
+    android:paddingRight="16dp"
+    android:paddingLeft="16dp">
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/button7" />
-</RelativeLayout>
+        android:height="30sp"
+        android:text="Set Appliances"
+        android:layout_marginTop="10dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText1"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText1"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText2"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText2"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText3"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText3"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText4"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText4"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText5"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox5"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText5"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText6"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox6"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText6"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText7"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox7"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText7"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText8"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox8"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText8"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText9"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox9"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText9"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText10"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox10"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText10"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText11"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox11"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText11"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText12"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox12"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText12"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText13"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox13"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText13"
+                android:layout_column="3" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#dddddd">
+
+            <TextView
+                android:text="Appliance "
+                android:id="@+id/viewText14"
+                android:layout_column="1" />
+
+            <CheckBox
+                android:id="@+id/checkBox14"
+                android:layout_column="2" />
+
+            <TextView
+                android:text="ON"
+                android:id="@+id/viewOnText14"
+                android:layout_column="3" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+</LinearLayout>
+

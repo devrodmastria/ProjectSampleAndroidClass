@@ -33,10 +33,9 @@ public class TempFragment extends Fragment implements OnClickListener{
     // TODO: Rename and change types of parameters
 
 
-    private double DegreeValue;
-    Button TempUP;
-    Button TempDown;
-    EditText Degree;
+    private Button TempUP;
+    private Button TempDown;
+    private EditText Degree;
 
     private String mParam1;
     private String mParam2;
@@ -80,6 +79,8 @@ public class TempFragment extends Fragment implements OnClickListener{
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+
     }
 
     @Override
@@ -110,26 +111,26 @@ public class TempFragment extends Fragment implements OnClickListener{
 
         switch (v.getId()){
             case R.id.TempPlus:
-                DegreeValue = Float.parseFloat(Degree.getText().toString());
-                if(DegreeValue > 90){
-                    DegreeValue = 75;
+                double degreeValue = Double.parseDouble(Degree.getText().toString());
+                if(degreeValue > 90){
+                    degreeValue = 75;
                 }
-                if(DegreeValue < 60){
-                    DegreeValue = 75;
+                if(degreeValue < 60){
+                    degreeValue = 75;
                 }
-                DegreeValue = DegreeValue + 1.0f;
-                Degree.setText(Double.toString(DegreeValue));
+                degreeValue = degreeValue + 1;
+                Degree.setText(String.valueOf(degreeValue));
                 break;
             case R.id.TempMinus:
-                DegreeValue = Float.parseFloat(Degree.getText().toString());
-                if(DegreeValue > 112){
-                    DegreeValue = 75;
+                degreeValue = Double.parseDouble(Degree.getText().toString());
+                if(degreeValue > 112){
+                    degreeValue = 75;
                 }
-                if(DegreeValue < 30){
-                    DegreeValue = 75;
+                if(degreeValue < 30){
+                    degreeValue = 75;
                 }
-                DegreeValue = DegreeValue - 1.0f;
-                Degree.setText(Double.toString(DegreeValue));
+                degreeValue = degreeValue - 1;
+                Degree.setText(String.valueOf(degreeValue));
                 break;
         }
     }
