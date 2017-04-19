@@ -37,9 +37,6 @@
             android:name=".EnergyActivity"
             android:parentActivityName=".MainActivity" />
 
-        <activity
-            android:name=".RoomLightsActivity"
-            android:parentActivityName=".EnergyActivity" />
     </application>
 
 </manifest>

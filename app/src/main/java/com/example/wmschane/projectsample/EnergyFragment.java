@@ -58,7 +58,6 @@ public class EnergyFragment extends Fragment {
         manageLights.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(EnergyActivity.this, RoomLightsActivity.class));
                 FragmentTransaction transaction;
                 transaction = getFragmentManager().beginTransaction();
                 transaction.replace(android.R.id.content, new LightsFragment());
@@ -79,8 +78,6 @@ public class EnergyFragment extends Fragment {
                 transaction.replace(android.R.id.content, new TempFragment());
                 transaction.commit();
 
-
-//                startActivity(new Intent(EnergyActivity.this, TemperaturesActivity.class));
             }
         });
 
@@ -90,7 +87,6 @@ public class EnergyFragment extends Fragment {
         appliancesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                startActivity(new Intent(EnergyActivity.this, AppliancesActivity.class));
 
                 FragmentTransaction transaction;
                 transaction = getFragmentManager().beginTransaction();

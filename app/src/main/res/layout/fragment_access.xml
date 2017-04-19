@@ -29,11 +29,11 @@
                 android:layout_column="1" />
 
             <CheckBox
-                android:id="@+id/checkBox1"
+                android:id="@+id/checkBoxLockFront"
                 android:layout_column="2" />
 
             <TextView
-                android:text="Unlocked"
+                android:text="Lock"
                 android:id="@+id/viewOnText1"
                 android:layout_column="3" />
 
@@ -49,11 +49,11 @@
                 android:layout_column="1" />
 
             <CheckBox
-                android:id="@+id/checkBox2"
+                android:id="@+id/checkBoxLockBack"
                 android:layout_column="2" />
 
             <TextView
-                android:text="Unlocked"
+                android:text="Lock"
                 android:id="@+id/viewOnText2"
                 android:layout_column="3" />
 
@@ -69,11 +69,11 @@
                 android:layout_column="1" />
 
             <CheckBox
-                android:id="@+id/checkBox3"
+                android:id="@+id/checkBoxLockGarage"
                 android:layout_column="2" />
 
             <TextView
-                android:text="Unlocked"
+                android:text="Lock"
                 android:id="@+id/viewOnText3"
                 android:layout_column="3" />
 

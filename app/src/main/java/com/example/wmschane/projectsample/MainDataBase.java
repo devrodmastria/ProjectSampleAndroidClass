@@ -12,7 +12,7 @@ import java.util.HashMap;
 
 public class MainDataBase extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "FinalProject.db";
+    public static final String DATABASE_NAME = "Login.db";
     public static final String TABLE_NAME = "Login";
     public static final String PK_COLUMN_USERNAME = "UserName";
     public static final String COLUMN_PASSWORD = "Password";
@@ -20,7 +20,7 @@ public class MainDataBase extends SQLiteOpenHelper {
 
     public MainDataBase(Context context)
     {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DBHelper.DATABASE_VERSION);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class MainDataBase extends SQLiteOpenHelper {
         boolean res;
         db.execSQL("create table " + TABLE_NAME + " (" +
                         PK_COLUMN_USERNAME + " text primary key, " +
-                        COLUMN_PASSWORD + " text, "
+                        COLUMN_PASSWORD + " text )"
         );
     }
 
@@ -85,13 +85,13 @@ public class MainDataBase extends SQLiteOpenHelper {
         if (pkUserName == null)
             query = "select * from " + TABLE_NAME;
         else
-            query = "select * from " + TABLE_NAME + " where UserName = '" + pkUserName + "' + and Password = '" + pkPassword + "'";
+            query = "select * from " + TABLE_NAME + " where UserName = '" + pkUserName + "' and Password = '" + pkPassword + "'";
         Cursor res =  db.rawQuery(query, null);
         res.moveToFirst();
 
-        while(res.isAfterLast() == false){
+        map = new HashMap<>();
 
-            map = new HashMap<>();
+        while(res.isAfterLast() == false){
 
             map.put(PK_COLUMN_USERNAME, res.getString(res.getColumnIndex(PK_COLUMN_USERNAME)));
             map.put(COLUMN_PASSWORD,res.getString(res.getColumnIndex(COLUMN_PASSWORD)));

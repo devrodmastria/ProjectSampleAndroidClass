@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity
 
     ProtectionDatabase pd;
     TempDatabase td;
-    AppliancesDatabase ad;
-    EnergyDatabase ed;
     MainDataBase md;
     DBHelper db; // is the sample class working right?
 
@@ -39,13 +37,11 @@ public class MainActivity extends AppCompatActivity
 
         pd = new ProtectionDatabase(getApplicationContext());
         td= new TempDatabase(getApplicationContext());
-        ad = new AppliancesDatabase(getApplicationContext());
-        ed = new EnergyDatabase(getApplicationContext());
         md = new MainDataBase(getApplicationContext());
 
         db = new DBHelper(getApplicationContext());
-        db.updateSetting("laundry", true, "1");
-        Log.d("logbase", "Data "+ db.getSettings("laundry"));
+//        db.updateSetting("laundry", true, "1");
+//        Log.d("logbase", "Data "+ db.getSettings("laundry"));
 
         boolean DaySet = td.updateSetting("Sunday","70","70");
         DaySet = td.updateSetting("Monday","70","70");
@@ -55,12 +51,20 @@ public class MainActivity extends AppCompatActivity
         DaySet = td.updateSetting("Friday","70","70");
         DaySet = td.updateSetting("Saturday","70","70");
 
-        boolean LightSet;
-        for(int i = 1; i < 15; i++){
-            LightSet = ed.updateSetting("Room "+ i,"off");
-            Log.d("tag", "Boolean DB LightSet " + LightSet);
+        boolean Setting;
+        if(db.numberOfRowsEnergy() == 0){
+            for(int i = 1; i < 15; i++){
+                Setting = db.insertEnergySetting("room"+ i, DBHelper.STATE_OFF);
+                Log.d("tag", "Boolean Insert DB Lights " + Setting);
+            }
         }
 
+        if(db.numberOfRowsAppliance() == 0){
+            for(int i = 1; i < 15; i++){
+                Setting = db.insertApplianceSetting("appliance"+ i, DBHelper.STATE_OFF);
+                Log.d("tag", "Boolean Insert DB appliance " + Setting);
+            }
+        }
 
         boolean ProtectionSet;
         for(int i = 1; i < 15; i++){
@@ -68,16 +72,12 @@ public class MainActivity extends AppCompatActivity
             Log.d("tag", "Boolean DB ProtectionSet " + ProtectionSet);
         }
 
-        boolean ApplSet;
-        for(int i = 1; i < 15; i++){
-            ApplSet = ad.updateSetting("Appliance "+ i,"off");
-            Log.d("tag", "Boolean DB ApplSet " + ApplSet);
-        }
+
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
         SharedPreferences preferences = getSharedPreferences("authentic", MODE_PRIVATE);
-        if(preferences.getBoolean("authentic", true)){ // TODO change default to false after implementation of login
+        if(preferences.getBoolean("authentic", false)){ // TODO change default to false after implementation of login
 
             transaction.replace(R.id.mainFrame, new AlertsFragment());
             transaction.addToBackStack(null);

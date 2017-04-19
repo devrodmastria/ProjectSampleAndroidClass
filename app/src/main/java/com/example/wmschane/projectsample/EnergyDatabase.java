@@ -73,7 +73,7 @@ public class EnergyDatabase extends SQLiteOpenHelper {
                 new String[] { Room });
     }
 
-    public ArrayList<HashMap<String, Object>> getSettings(String pkVal)
+    public ArrayList<HashMap<String, Object>> getEnergySettings(String pkVal)
     {
         ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
         HashMap<String, Object> map;
