@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity
     implements AlertsFragment.OnListFragmentInteractionListener, RoomFragment.OnListFragmentInteractionListener {
 
     ProtectionDatabase pd;
-    TempDatabase td;
     MainDataBase md;
-    DBHelper db; // is the sample class working right?
+    DBHelper db;
 
 
 
@@ -36,43 +35,47 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
         pd = new ProtectionDatabase(getApplicationContext());
-        td= new TempDatabase(getApplicationContext());
         md = new MainDataBase(getApplicationContext());
 
         db = new DBHelper(getApplicationContext());
-//        db.updateSetting("laundry", true, "1");
-//        Log.d("logbase", "Data "+ db.getSettings("laundry"));
-
-        boolean DaySet = td.updateSetting("Sunday","70","70");
-        DaySet = td.updateSetting("Monday","70","70");
-        DaySet = td.updateSetting("Tuesday","70","70");
-        DaySet = td.updateSetting("Wednesday","70","70");
-        DaySet = td.updateSetting("Thursday","70","70");
-        DaySet = td.updateSetting("Friday","70","70");
-        DaySet = td.updateSetting("Saturday","70","70");
 
         boolean Setting;
         if(db.numberOfRowsEnergy() == 0){
             for(int i = 1; i < 15; i++){
                 Setting = db.insertEnergySetting("room"+ i, DBHelper.STATE_OFF);
-                Log.d("tag", "Boolean Insert DB Lights " + Setting);
+                Log.d("tagDB", "Boolean Insert DB Lights " + Setting);
             }
         }
 
         if(db.numberOfRowsAppliance() == 0){
             for(int i = 1; i < 15; i++){
                 Setting = db.insertApplianceSetting("appliance"+ i, DBHelper.STATE_OFF);
-                Log.d("tag", "Boolean Insert DB appliance " + Setting);
+                Log.d("tagDB", "Boolean Insert DB appliance " + Setting);
             }
+        }
+
+        if(db.numberOfRowsTemp() == 0){
+            Setting = db.insertTempSetting(DBHelper.SUN,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.MON,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.TUE,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.WED,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.THR,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.FRI,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
+            Setting = db.insertTempSetting(DBHelper.SAT,"70.0","70.0");
+            Log.d("tagDB", "Boolean Insert DB temp " + Setting);
         }
 
         boolean ProtectionSet;
         for(int i = 1; i < 15; i++){
             ProtectionSet = pd.updateSetting("Area "+ i,"off");
-            Log.d("tag", "Boolean DB ProtectionSet " + ProtectionSet);
+            Log.d("tagDB", "Boolean DB ProtectionSet " + ProtectionSet);
         }
-
-
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();

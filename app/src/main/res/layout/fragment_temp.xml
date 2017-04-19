@@ -51,14 +51,13 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinus"
+                android:id="@+id/MinusSunDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegree"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeSunDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -70,7 +69,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlus"
+                android:id="@+id/PlusSunDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -78,14 +77,13 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusNightSunday"
+                android:id="@+id/MinusSundayNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeNightSunday"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeSundayNight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -97,7 +95,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusNightSunday"
+                android:id="@+id/PlusSundayNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -116,14 +114,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusMondayDay"
+                android:id="@+id/MinusMondayDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeMondayDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeMondayDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -135,7 +133,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusMondayDay"
+                android:id="@+id/PlusMondayDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -143,14 +141,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusMondayNight"
+                android:id="@+id/MinusMondayNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeMondayNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeMondayNight"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -162,7 +160,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusNightMondayNight"
+                android:id="@+id/PlusMondayNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -181,14 +179,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusTuesdayDay"
+                android:id="@+id/MinusTuesdayDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeTuesdayDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeTuesdayDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -200,7 +198,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusTuesdayDay"
+                android:id="@+id/PlusTuesdayDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -208,14 +206,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusTuesdayNight"
+                android:id="@+id/MinusTuesdayNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeTuesdayNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeTuesdayNight"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -227,7 +225,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusTuesdayNight"
+                android:id="@+id/PlusTuesdayNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -246,14 +244,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusWedDay"
+                android:id="@+id/MinusWedDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeWedDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeWedDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -265,7 +263,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusWedDay"
+                android:id="@+id/PlusWedDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -273,14 +271,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusWedNight"
+                android:id="@+id/MinusWedNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeWedNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeWedNight"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -292,7 +290,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusWedNight"
+                android:id="@+id/PlusWedNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -311,14 +309,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusThuDay"
+                android:id="@+id/MinusThuDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeThuDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeThuDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -330,7 +328,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusThuDay"
+                android:id="@+id/PlusThuDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -338,14 +336,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusThuNight"
+                android:id="@+id/MinusThuNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeThuNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeThuNight"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -357,7 +355,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusThuNight"
+                android:id="@+id/PlusThuNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -376,14 +374,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusFriDay"
+                android:id="@+id/MinusFriDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeFriDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeFriDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -395,7 +393,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusFriDay"
+                android:id="@+id/PlusFriDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -403,14 +401,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusFriNight"
+                android:id="@+id/MinusFriNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeFriNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeFriNight"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -422,7 +420,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusFriNight"
+                android:id="@+id/PlusFriNight"
                 android:layout_column="7" />
 
         </TableRow>
@@ -441,14 +439,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusSatDay"
+                android:id="@+id/MinusSatDay"
                 android:layout_marginEnd="5dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="2" />
 
             <EditText
-                android:id="@+id/TempDegreeSatDay"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeSatDay"
+                android:labelFor="@+id/Degree"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -460,7 +458,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusSatDay"
+                android:id="@+id/PlusSatDay"
                 android:layout_marginEnd="5dp"
                 android:layout_column="4" />
 
@@ -468,14 +466,14 @@
                 android:text="-"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempMinusSatNight"
+                android:id="@+id/MinusSatNight"
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:layout_column="5" />
 
             <EditText
-                android:id="@+id/TempDegreeSatNight"
-                android:labelFor="@+id/TempDegree"
+                android:id="@+id/DegreeSatNight"
+                android:labelFor="@+id/DegreeSatNight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="3"
@@ -487,7 +485,7 @@
                 android:text="+"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/TempPlusSatNight"
+                android:id="@+id/PlusSatNight"
                 android:layout_column="7" />
 
         </TableRow>

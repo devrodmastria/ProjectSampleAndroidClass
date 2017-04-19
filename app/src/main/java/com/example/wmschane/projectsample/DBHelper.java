@@ -14,6 +14,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "FinalProject.db";
     public  static final String STATE_ON = "on";
     public  static final String STATE_OFF = "off";
+    public  static final String SUN = "Sunday";
+    public  static final String MON = "Monday";
+    public  static final String TUE = "Tuesday";
+    public  static final String WED = "Wednesday";
+    public  static final String THR = "Thursday";
+    public  static final String FRI = "Friday";
+    public  static final String SAT = "Saturday";
+
+
 
     public static final String TABLE_ENERGY = "EnergyRoom";
     public static final String PK_COLUMN_ROOM_NAME = "Room";
@@ -23,7 +32,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PK_COLUMN_APL_NAME = "ApplianceName";
     public static final String COLUMN_APL_STATE = "ApplianceState";
 
-    public static final int DATABASE_VERSION = 7;
+    public static final String TABLE_TEMP = "EnergyTemp";
+    public static final String PK_COLUMN_DAY_OF_WEEK = "DOW";
+    public static final String COLUMN_DAY = "Day";
+    public static final String COLUMN_NIGHT = "Night";
+
+    public static final int DATABASE_VERSION = 8;
 
     public DBHelper(Context context)
     {
@@ -43,6 +57,12 @@ public class DBHelper extends SQLiteOpenHelper {
                 PK_COLUMN_APL_NAME + " text primary key, " +
                 COLUMN_APL_STATE + " text)"
         );
+
+        db.execSQL("create table " + TABLE_TEMP + " (" +
+                PK_COLUMN_DAY_OF_WEEK + " text primary key, " +
+                COLUMN_DAY + " text, " +
+                COLUMN_NIGHT + " text)"
+        );
     }
 
     @Override
@@ -50,6 +70,7 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENERGY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_APPLIANCES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEMP);
         onCreate(db);
     }
 
@@ -73,6 +94,17 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean insertTempSetting  (String DayOfWeek, String Day, String Night)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_DAY_OF_WEEK, DayOfWeek);
+        contentValues.put(COLUMN_DAY, Day);
+        contentValues.put(COLUMN_NIGHT, Night);
+        db.insert(TABLE_TEMP, null, contentValues);
+        return true;
+    }
+
     public int numberOfRowsEnergy(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_ENERGY);
@@ -82,6 +114,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public int numberOfRowsAppliance(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_APPLIANCES);
+        return numRows;
+    }
+
+    public int numberOfRowsTemp(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_TEMP);
         return numRows;
     }
 
@@ -103,6 +141,17 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_APL_STATE, AplSetting);
         db.update(TABLE_APPLIANCES, contentValues, PK_COLUMN_APL_NAME + " = ? ",
                 new String[] { AplName} );
+        return true;
+    }
+
+    public boolean updateTempSetting (String DayOfWeek, String Day, String Night)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_DAY, Day);
+        contentValues.put(COLUMN_NIGHT, Night);
+        db.update(TABLE_TEMP, contentValues, PK_COLUMN_DAY_OF_WEEK + " = ? ",
+                new String[] { DayOfWeek } );
         return true;
     }
 
@@ -150,6 +199,32 @@ public class DBHelper extends SQLiteOpenHelper {
 
             map.put(PK_COLUMN_APL_NAME, res.getString(res.getColumnIndex(PK_COLUMN_APL_NAME)));
             map.put(COLUMN_APL_STATE,res.getString(res.getColumnIndex(COLUMN_APL_STATE)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
+    }
+
+    public ArrayList<HashMap<String, Object>> getTempSettings(String pkVal)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkVal == null)
+            query = "select * from " + TABLE_TEMP;
+        else
+            query = "select * from " + TABLE_TEMP + " where " + PK_COLUMN_DAY_OF_WEEK + " = '" + pkVal + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_DAY_OF_WEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAY_OF_WEEK)));
+            map.put(COLUMN_DAY,res.getString(res.getColumnIndex(COLUMN_DAY)));
+            map.put(COLUMN_NIGHT,res.getString(res.getColumnIndex(COLUMN_NIGHT)));
             settings_list.add(map);
             res.moveToNext();
         }
