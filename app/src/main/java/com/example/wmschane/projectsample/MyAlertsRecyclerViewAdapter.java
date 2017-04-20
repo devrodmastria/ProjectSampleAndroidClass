@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.wmschane.projectsample.AlertsFragment.OnListFragmentInteractionListener;
-import com.example.wmschane.projectsample.dummy.AlertsContent.DummyItem;
+import com.example.wmschane.projectsample.AlertsContent.DummyItem;
 
 import java.util.List;
 
@@ -35,9 +35,15 @@ public class MyAlertsRecyclerViewAdapter extends RecyclerView.Adapter<MyAlertsRe
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+
+
+
         holder.mItem = mValues.get(position);
         holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).content);
+
+
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,9 +11,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.wmschane.projectsample.dummy.AlertsContent;
-import com.example.wmschane.projectsample.dummy.RoomContent;
-
 /**
  * Created by Rodrigo on 3/14/2017.
  */
@@ -135,7 +132,7 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
         SharedPreferences preferences = getSharedPreferences("authentic", MODE_PRIVATE);
-        if(preferences.getBoolean("authentic", false)){ // TODO change default to false after implementation of login
+        if(preferences.getBoolean("authentic", false)){
 
             transaction.replace(R.id.mainFrame, new AlertsFragment());
             transaction.addToBackStack(null);

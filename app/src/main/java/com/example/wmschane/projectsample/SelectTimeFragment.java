@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TimePicker;
 
 /**
  * Created by Rodrigo on 4/9/2017.
@@ -15,15 +16,32 @@ import android.widget.EditText;
 
 public class SelectTimeFragment extends Fragment {
 
+    private DBHelper db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_select_time, container, false);
 
-        final EditText startTime = (EditText)view.findViewById(R.id.startTime);
 
-        final EditText endTime = (EditText)view.findViewById(R.id.endTime);
+//        Bundle fromBundle = getArguments();
+//        String from = fromBundle.getString("from");
+//
+//        SelectTimeFragment newFrag = new SelectTimeFragment();
+//        Bundle args = new Bundle();
+//        args.putString("from", from);
+//        args.putInt("date", datePicker.getDayOfMonth());
+//        newFrag.setArguments(args);
+//
+//        FragmentTransaction transaction;
+//        transaction = getFragmentManager().beginTransaction();
+//        transaction.replace(android.R.id.content, newFrag);
+//        transaction.addToBackStack(null);
+//        transaction.commit();
+
+
+        db = new DBHelper(getActivity());
+        final TimePicker timePicker = (TimePicker)view.findViewById(R.id.timePicker);
 
         Button save = (Button)view.findViewById(R.id.saveTimeButton);
 
@@ -31,35 +49,29 @@ public class SelectTimeFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                String start = startTime.getText().toString();
-                String stop = endTime.getText().toString();
 
                 Bundle fromBundle = getArguments();
-                String date = fromBundle.getString("date");
-                String from = fromBundle.getString("from");
+                String from = fromBundle.getString(MainActivity.TITLE);
 
                 //TODO save data to SQLite database
 
 
+                int time = timePicker.getBaseline();
 
 
-                FragmentTransaction transaction;
-                transaction = getFragmentManager().beginTransaction();
                 switch (from){
-                    case "admin":
-                        transaction.replace(android.R.id.content, new AdminFragment());
-                        transaction.addToBackStack(null);
-                        transaction.commit();
+                    case MainActivity.HEALTH:
+
+
+
                         break;
-                    case "energy":
-                        transaction.replace(android.R.id.content, new EnergyFragment());
-                        transaction.addToBackStack(null);
-                        transaction.commit();
+                    case MainActivity.ENERGY:
+
+
                         break;
-                    case "health":
-                        transaction.replace(android.R.id.content, new EnergyFragment());
-                        transaction.addToBackStack(null);
-                        transaction.commit();
+                    case MainActivity.PROTECTION:
+
+
                         break;
                 }
 

@@ -25,9 +25,9 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                AdminHealthFragment newFrag = new AdminHealthFragment();
+                AdminSchedulesFragment newFrag = new AdminSchedulesFragment();
                 Bundle args = new Bundle();
-                args.putString("from", "admin");
+                args.putString(DBHelper.TABLE, DBHelper.TABLE_ADMIN_HEALTH);
                 newFrag.setArguments(args);
 
                 FragmentTransaction transaction;
@@ -35,6 +35,17 @@ public class AdminFragment extends Fragment {
                 transaction.replace(android.R.id.content, newFrag);
                 transaction.addToBackStack(null);
                 transaction.commit();
+
+//                AdminHealthFragment newFrag = new AdminHealthFragment();
+//                Bundle args = new Bundle();
+//                args.putString("from", "admin");
+//                newFrag.setArguments(args);
+//
+//                FragmentTransaction transaction;
+//                transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(android.R.id.content, newFrag);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
             }
         });
         Button energyBtn = (Button)view.findViewById(R.id.energyButton);
@@ -42,9 +53,9 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                AdminEnergyFragment newFrag = new AdminEnergyFragment();
+                AdminSchedulesFragment newFrag = new AdminSchedulesFragment();
                 Bundle args = new Bundle();
-                args.putString("from", "admin");
+                args.putString(DBHelper.TABLE, DBHelper.TABLE_ADMIN_ENERGY);
                 newFrag.setArguments(args);
 
                 FragmentTransaction transaction;
@@ -60,9 +71,9 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                AdminProtectFragment newFrag = new AdminProtectFragment();
+                AdminSchedulesFragment newFrag = new AdminSchedulesFragment();
                 Bundle args = new Bundle();
-                args.putString("from", "admin");
+                args.putString(DBHelper.TABLE, DBHelper.TABLE_ADMIN_PROTECTION);
                 newFrag.setArguments(args);
 
                 FragmentTransaction transaction;
@@ -70,6 +81,17 @@ public class AdminFragment extends Fragment {
                 transaction.replace(android.R.id.content, newFrag);
                 transaction.addToBackStack(null);
                 transaction.commit();
+//
+//                AdminProtectFragment newFrag = new AdminProtectFragment();
+//                Bundle args = new Bundle();
+//                args.putString("from", "admin");
+//                newFrag.setArguments(args);
+//
+//                FragmentTransaction transaction;
+//                transaction = getFragmentManager().beginTransaction();
+//                transaction.replace(android.R.id.content, newFrag);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
             }
         });
 

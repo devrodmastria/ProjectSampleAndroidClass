@@ -6,10 +6,10 @@
     android:paddingLeft="8dp">
 
     <TextView
-        android:text="Energy - arm times"
+        android:text="Admin - arm times"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/textViewTitle"
         android:textSize="24sp"
         android:layout_marginTop="10dp"/>
 
@@ -19,8 +19,7 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:text="On"
@@ -39,34 +38,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Sun"
+                android:text="Sunday"
                 android:id="@+id/viewText1"
                 android:layout_column="1" />
 
-
-            <EditText
-                android:id="@+id/SunOn"
+            <Button
+                android:id="@+id/sunOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_column="3"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:layout_column="3" />
 
 
-            <EditText
-                android:id="@+id/SunOff"
+            <Button
+                android:id="@+id/sunOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -76,34 +67,27 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Mon"
+                android:text="Monday"
                 android:id="@+id/viewText2"
                 android:layout_column="1" />
 
 
-            <EditText
-                android:id="@+id/MonOn"
+            <Button
+                android:id="@+id/monOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
 
-            <EditText
-                android:id="@+id/MonOff"
+            <Button
+                android:id="@+id/monOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -112,33 +96,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Tue"
+                android:text="Tuesday"
                 android:id="@+id/viewText3"
                 android:layout_column="1" />
 
 
-            <EditText
-                android:id="@+id/TueOn"
+            <Button
+                android:id="@+id/tueOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
-            <EditText
-                android:id="@+id/TueOff"
+            <Button
+                android:id="@+id/tueOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -147,33 +124,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Wed"
+                android:text="Wednesday"
                 android:id="@+id/viewText4"
                 android:layout_column="1" />
 
 
-            <EditText
-                android:id="@+id/WedOn"
+            <Button
+                android:id="@+id/wedOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
-            <EditText
-                android:id="@+id/WedOff"
+            <Button
+                android:id="@+id/wedOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -182,33 +152,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Thu"
+                android:text="Thursday"
                 android:id="@+id/viewText5"
                 android:layout_column="1" />
 
 
-            <EditText
-                android:id="@+id/ThuOn"
+            <Button
+                android:id="@+id/thuOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
-            <EditText
-                android:id="@+id/ThuOff"
+            <Button
+                android:id="@+id/thuOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -217,33 +180,26 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Fri"
+                android:text="Friday"
                 android:id="@+id/viewText6"
                 android:layout_column="1" />
 
 
-            <EditText
-                android:id="@+id/FriOn"
+            <Button
+                android:id="@+id/friOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
-            <EditText
-                android:id="@+id/FriOff"
+            <Button
+                android:id="@+id/friOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />
@@ -253,32 +209,25 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#dddddd">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:text="Sat"
+                android:text="Saturday"
                 android:id="@+id/viewText7"
                 android:layout_column="1" />
 
-            <EditText
-                android:id="@+id/SatOn"
+            <Button
+                android:id="@+id/satOn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="12:00AM"
                 android:textAlignment="center"
                 android:layout_column="3" />
 
-            <EditText
-                android:id="@+id/SatOff"
+            <Button
+                android:id="@+id/satOff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="4"
-                android:imeOptions="actionDone"
-                android:inputType="text"
                 android:text="11:59PM"
                 android:textAlignment="center"
                 android:layout_column="6" />

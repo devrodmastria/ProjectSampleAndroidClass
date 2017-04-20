@@ -51,6 +51,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public static final String TABLE_ADMIN_PROTECTION = "AdminProtection";
 
+    // Used by TimePickerFragment
+    public static final String TABLE = "table";
+    public static final String DOW = "dow";
+    public static final String FROM_TIME_PICKER = "picker";
+    public static final String OTHER_TIME = "other";
+
     public static final int DATABASE_VERSION = 14;
 
     public DBHelper(Context context)

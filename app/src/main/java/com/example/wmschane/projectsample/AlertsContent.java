@@ -1,4 +1,4 @@
-package com.example.wmschane.projectsample.dummy;
+package com.example.wmschane.projectsample;
 
 import android.content.Intent;
 
@@ -44,10 +44,14 @@ public class AlertsContent {
         String randomAlert = "alert";
 
         Double randNumber = Math.random() * 10;
-        if (position < randNumber){
-            randomAlert = "Cat detected in the backyard";
+        if (randNumber > 8){
+            randomAlert = "Intrusion detected in living room";
+        } else if ( randNumber > 6){
+            randomAlert = "High level of carbon monoxide";
+        } else if( randNumber > 4){
+            randomAlert = "Smoke detected in kitchen";
         } else {
-            randomAlert = "Main package detected by the front door";
+            randomAlert = "Fire detected in living room";
         }
 
         return new DummyItem(String.valueOf(position), randomAlert, makeDetails(position));
