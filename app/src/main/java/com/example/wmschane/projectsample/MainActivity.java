@@ -75,6 +75,57 @@ public class MainActivity extends AppCompatActivity
             }
         }
 
+        if(db.numberOfRowsAdmHealth() == 0){
+            Setting = db.insertAdmHealthSetting(DBHelper.SUN,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.MON,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.TUE,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.WED,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.THR,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.FRI,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+            Setting = db.insertAdmHealthSetting(DBHelper.SAT,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm health " + Setting);
+        }
+
+        if(db.numberOfRowsAdmEnergy() == 0){
+            Setting = db.insertAdmEnergySetting(DBHelper.SUN,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.MON,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.TUE,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.WED,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.THR,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.FRI,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+            Setting = db.insertAdmEnergySetting(DBHelper.SAT,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm energy " + Setting);
+        }
+
+        if(db.numberOfRowsAdmProtect() == 0){
+            Setting = db.insertAdmProtectSetting(DBHelper.SUN,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.MON,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.TUE,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.WED,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.THR,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.FRI,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+            Setting = db.insertAdmProtectSetting(DBHelper.SAT,"12:00AM","11:59PM");
+            Log.d("tagDB", "Boolean Insert DB adm protect " + Setting);
+        }
+
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
         SharedPreferences preferences = getSharedPreferences("authentic", MODE_PRIVATE);

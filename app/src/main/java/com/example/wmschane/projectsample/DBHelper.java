@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_APL_STATE = "ApplianceState";
 
     public static final String TABLE_TEMP = "EnergyTemp";
-    public static final String PK_COLUMN_DAY_OF_WEEK = "DOW";
+    public static final String PK_COLUMN_DAY_OF_WEEK = "DOW"; // used for both temperature and admin fragments
     public static final String COLUMN_DAY = "Day";
     public static final String COLUMN_NIGHT = "Night";
 
@@ -43,7 +43,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String PK_COLUMN_AREA = "Area";
     public static final String COLUMN_STATUS = "Status";
 
-    public static final int DATABASE_VERSION = 11;
+    public static final String TABLE_ADMIN_HEALTH = "AdminHealth";
+    public static final String COLUMN_ON_TIME = "armOn";
+    public static final String COLUMN_OFF_TIME = "armOff";
+
+    public static final String TABLE_ADMIN_ENERGY = "AdminEnergy";
+
+    public static final String TABLE_ADMIN_PROTECTION = "AdminProtection";
+
+    public static final int DATABASE_VERSION = 14;
 
     public DBHelper(Context context)
     {
@@ -78,6 +86,24 @@ public class DBHelper extends SQLiteOpenHelper {
                 PK_COLUMN_AREA + " text primary key, " +
                 COLUMN_STATUS + " text)"
         );
+
+        db.execSQL("create table " + TABLE_ADMIN_HEALTH + " (" +
+                PK_COLUMN_DAY_OF_WEEK + " text primary key, " +
+                COLUMN_ON_TIME + " text, " +
+                COLUMN_OFF_TIME + " text)"
+        );
+
+        db.execSQL("create table " + TABLE_ADMIN_ENERGY + " (" +
+                PK_COLUMN_DAY_OF_WEEK + " text primary key, " +
+                COLUMN_ON_TIME + " text, " +
+                COLUMN_OFF_TIME + " text)"
+        );
+
+        db.execSQL("create table " + TABLE_ADMIN_PROTECTION + " (" +
+                PK_COLUMN_DAY_OF_WEEK + " text primary key, " +
+                COLUMN_ON_TIME + " text, " +
+                COLUMN_OFF_TIME + " text)"
+        );
     }
 
     @Override
@@ -88,6 +114,9 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEMP);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACCESS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN_HEALTH);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN_ENERGY);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ADMIN_PROTECTION);
         onCreate(db);
     }
 
@@ -142,6 +171,39 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean insertAdmHealthSetting  (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_DAY_OF_WEEK, DayOfWeek);
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.insert(TABLE_ADMIN_HEALTH, null, contentValues);
+        return true;
+    }
+
+    public boolean insertAdmEnergySetting  (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_DAY_OF_WEEK, DayOfWeek);
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.insert(TABLE_ADMIN_ENERGY, null, contentValues);
+        return true;
+    }
+
+    public boolean insertAdmProtectSetting  (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_DAY_OF_WEEK, DayOfWeek);
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.insert(TABLE_ADMIN_PROTECTION, null, contentValues);
+        return true;
+    }
+
     public int numberOfRowsLogin(){
         SQLiteDatabase db = this.getReadableDatabase();
         int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_LOGIN);
@@ -166,6 +228,21 @@ public class DBHelper extends SQLiteOpenHelper {
     public int numberOfRowsAccess(){
         SQLiteDatabase db = this.getReadableDatabase();
         return (int) DatabaseUtils.queryNumEntries(db, TABLE_ACCESS);
+    }
+
+    public int numberOfRowsAdmHealth(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_ADMIN_HEALTH);
+    }
+
+    public int numberOfRowsAdmEnergy(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_ADMIN_ENERGY);
+    }
+
+    public int numberOfRowsAdmProtect(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_ADMIN_PROTECTION);
     }
 
     public boolean updateLoginSetting (String UserName, String Password)
@@ -219,6 +296,39 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_STATUS, Status);
         db.update(TABLE_ACCESS, contentValues, PK_COLUMN_AREA + " = ? ",
                 new String[] { Area } );
+        return true;
+    }
+
+    public boolean updateAdmHealthSetting (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.update(TABLE_ADMIN_HEALTH, contentValues, PK_COLUMN_DAY_OF_WEEK + " = ? ",
+                new String[] { DayOfWeek } );
+        return true;
+    }
+
+    public boolean updateAdmEnergySetting (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.update(TABLE_ADMIN_ENERGY, contentValues, PK_COLUMN_DAY_OF_WEEK + " = ? ",
+                new String[] { DayOfWeek } );
+        return true;
+    }
+
+    public boolean updateAdmProtectSetting (String DayOfWeek, String on, String off)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_ON_TIME, on);
+        contentValues.put(COLUMN_OFF_TIME, off);
+        db.update(TABLE_ADMIN_PROTECTION, contentValues, PK_COLUMN_DAY_OF_WEEK + " = ? ",
+                new String[] { DayOfWeek } );
         return true;
     }
 
@@ -343,6 +453,84 @@ public class DBHelper extends SQLiteOpenHelper {
 
             map.put(PK_COLUMN_AREA, res.getString(res.getColumnIndex(PK_COLUMN_AREA)));
             map.put(COLUMN_STATUS,res.getString(res.getColumnIndex(COLUMN_STATUS)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
+    }
+
+    public ArrayList<HashMap<String, Object>> getAdmHealthSettings(String pkVal)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkVal == null)
+            query = "select * from " + TABLE_ADMIN_HEALTH;
+        else
+            query = "select * from " + TABLE_ADMIN_HEALTH + " where " + PK_COLUMN_DAY_OF_WEEK + " = '" + pkVal + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_DAY_OF_WEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAY_OF_WEEK)));
+            map.put(COLUMN_ON_TIME,res.getString(res.getColumnIndex(COLUMN_ON_TIME)));
+            map.put(COLUMN_OFF_TIME,res.getString(res.getColumnIndex(COLUMN_OFF_TIME)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
+    }
+
+    public ArrayList<HashMap<String, Object>> getAdmEnergySettings(String pkVal)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkVal == null)
+            query = "select * from " + TABLE_ADMIN_ENERGY;
+        else
+            query = "select * from " + TABLE_ADMIN_ENERGY + " where " + PK_COLUMN_DAY_OF_WEEK + " = '" + pkVal + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_DAY_OF_WEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAY_OF_WEEK)));
+            map.put(COLUMN_ON_TIME,res.getString(res.getColumnIndex(COLUMN_ON_TIME)));
+            map.put(COLUMN_OFF_TIME,res.getString(res.getColumnIndex(COLUMN_OFF_TIME)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
+    }
+
+    public ArrayList<HashMap<String, Object>> getAdmProtectSettings(String pkVal)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkVal == null)
+            query = "select * from " + TABLE_ADMIN_PROTECTION;
+        else
+            query = "select * from " + TABLE_ADMIN_PROTECTION + " where " + PK_COLUMN_DAY_OF_WEEK + " = '" + pkVal + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_DAY_OF_WEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAY_OF_WEEK)));
+            map.put(COLUMN_ON_TIME,res.getString(res.getColumnIndex(COLUMN_ON_TIME)));
+            map.put(COLUMN_OFF_TIME,res.getString(res.getColumnIndex(COLUMN_OFF_TIME)));
             settings_list.add(map);
             res.moveToNext();
         }
