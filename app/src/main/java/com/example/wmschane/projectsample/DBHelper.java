@@ -22,7 +22,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public  static final String FRI = "Friday";
     public  static final String SAT = "Saturday";
 
-
+    public static final String TABLE_LOGIN = "Login";
+    public static final String PK_COLUMN_USERNAME = "UserName";
+    public static final String COLUMN_PASSWORD = "Password";
 
     public static final String TABLE_ENERGY = "EnergyRoom";
     public static final String PK_COLUMN_ROOM_NAME = "Room";
@@ -37,7 +39,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COLUMN_DAY = "Day";
     public static final String COLUMN_NIGHT = "Night";
 
-    public static final int DATABASE_VERSION = 8;
+    public static final String TABLE_ACCESS = "Protection";
+    public static final String PK_COLUMN_AREA = "Area";
+    public static final String COLUMN_STATUS = "Status";
+
+    public static final int DATABASE_VERSION = 11;
 
     public DBHelper(Context context)
     {
@@ -47,7 +53,11 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        boolean res;
+        db.execSQL("create table " + TABLE_LOGIN + " (" +
+                PK_COLUMN_USERNAME + " text primary key, " +
+                COLUMN_PASSWORD + " text )"
+        );
+
         db.execSQL("create table " + TABLE_ENERGY + " (" +
                 PK_COLUMN_ROOM_NAME + " text primary key, " +
                 COLUMN_ROOM_STATE + " text)"
@@ -63,6 +73,11 @@ public class DBHelper extends SQLiteOpenHelper {
                 COLUMN_DAY + " text, " +
                 COLUMN_NIGHT + " text)"
         );
+
+        db.execSQL("create table " + TABLE_ACCESS + " (" +
+                PK_COLUMN_AREA + " text primary key, " +
+                COLUMN_STATUS + " text)"
+        );
     }
 
     @Override
@@ -71,7 +86,19 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENERGY);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_APPLIANCES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TEMP);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ACCESS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
         onCreate(db);
+    }
+
+    public boolean insertLoginSetting  (String UserName, String Password)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_USERNAME, UserName);
+        contentValues.put(COLUMN_PASSWORD, Password);
+        db.insert(TABLE_LOGIN, null, contentValues);
+        return true;
     }
 
     public boolean insertEnergySetting  (String room, String on)
@@ -105,22 +132,51 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    public boolean insertAccessSetting  (String Area, String Status)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_AREA, Area);
+        contentValues.put(COLUMN_STATUS, Status);
+        db.insert(TABLE_ACCESS, null, contentValues);
+        return true;
+    }
+
+    public int numberOfRowsLogin(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_LOGIN);
+        return numRows;
+    }
+
     public int numberOfRowsEnergy(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_ENERGY);
-        return numRows;
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_ENERGY);
     }
 
     public int numberOfRowsAppliance(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_APPLIANCES);
-        return numRows;
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_APPLIANCES);
     }
 
     public int numberOfRowsTemp(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_TEMP);
-        return numRows;
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_TEMP);
+    }
+
+    public int numberOfRowsAccess(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return (int) DatabaseUtils.queryNumEntries(db, TABLE_ACCESS);
+    }
+
+    public boolean updateLoginSetting (String UserName, String Password)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_USERNAME, UserName);
+        contentValues.put(COLUMN_PASSWORD, Password);
+        db.update(TABLE_LOGIN, contentValues, PK_COLUMN_USERNAME + " = ? ",
+                new String[] { UserName } );
+        return true;
     }
 
     public boolean updateEnergySetting (String room, String on)
@@ -153,6 +209,43 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update(TABLE_TEMP, contentValues, PK_COLUMN_DAY_OF_WEEK + " = ? ",
                 new String[] { DayOfWeek } );
         return true;
+    }
+
+    public boolean updateAccessSetting (String Area, String Status)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(PK_COLUMN_AREA, Area);
+        contentValues.put(COLUMN_STATUS, Status);
+        db.update(TABLE_ACCESS, contentValues, PK_COLUMN_AREA + " = ? ",
+                new String[] { Area } );
+        return true;
+    }
+
+    public ArrayList<HashMap<String, Object>> getLoginSettings(String pkUserName, String pkPassword)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkUserName == null)
+            query = "select * from " + TABLE_LOGIN;
+        else
+            query = "select * from " + TABLE_LOGIN + " where UserName = '" + pkUserName + "' and Password = '" + pkPassword + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_USERNAME, res.getString(res.getColumnIndex(PK_COLUMN_USERNAME)));
+            map.put(COLUMN_PASSWORD,res.getString(res.getColumnIndex(COLUMN_PASSWORD)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
     }
 
     public ArrayList<HashMap<String, Object>> getEnergySettings(String pkVal)
@@ -225,6 +318,31 @@ public class DBHelper extends SQLiteOpenHelper {
             map.put(PK_COLUMN_DAY_OF_WEEK, res.getString(res.getColumnIndex(PK_COLUMN_DAY_OF_WEEK)));
             map.put(COLUMN_DAY,res.getString(res.getColumnIndex(COLUMN_DAY)));
             map.put(COLUMN_NIGHT,res.getString(res.getColumnIndex(COLUMN_NIGHT)));
+            settings_list.add(map);
+            res.moveToNext();
+        }
+        return settings_list;
+    }
+
+    public ArrayList<HashMap<String, Object>> getAccessSettings(String pkVal)
+    {
+        ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
+        HashMap<String, Object> map;
+        String query;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (pkVal == null)
+            query = "select * from " + TABLE_ACCESS;
+        else
+            query = "select * from " + TABLE_ACCESS + " where " + PK_COLUMN_AREA + " = '" + pkVal + "'";
+        Cursor res =  db.rawQuery(query, null);
+        res.moveToFirst();
+
+        map = new HashMap<>();
+        while(res.isAfterLast() == false){
+
+            map.put(PK_COLUMN_AREA, res.getString(res.getColumnIndex(PK_COLUMN_AREA)));
+            map.put(COLUMN_STATUS,res.getString(res.getColumnIndex(COLUMN_STATUS)));
             settings_list.add(map);
             res.moveToNext();
         }

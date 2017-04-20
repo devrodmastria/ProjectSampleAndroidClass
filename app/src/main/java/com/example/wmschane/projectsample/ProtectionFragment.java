@@ -20,13 +20,6 @@ public class ProtectionFragment extends Fragment{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_protection, container, false);
 
-
-//        ArrayList<HashMap<String, Object>> data = db.getSettings(null);
-//
-//        SimpleAdapter adapter = new SimpleAdapter(this, data, resource, from, to);
-//        listView2.setAdapter(adapter);
-
-
         Button viewRoom =(Button)view.findViewById(R.id.viewRoomButton);
         viewRoom.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,7 +13,8 @@ import java.util.HashMap;
 public class MainDataBase extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "Login.db";
-    public static final String TABLE_NAME = "Login";
+
+    public static final String TABLE_LOGIN = "Login";
     public static final String PK_COLUMN_USERNAME = "UserName";
     public static final String COLUMN_PASSWORD = "Password";
 
@@ -27,7 +28,7 @@ public class MainDataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         boolean res;
-        db.execSQL("create table " + TABLE_NAME + " (" +
+        db.execSQL("create table " + TABLE_LOGIN + " (" +
                         PK_COLUMN_USERNAME + " text primary key, " +
                         COLUMN_PASSWORD + " text )"
         );
@@ -36,33 +37,33 @@ public class MainDataBase extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LOGIN);
         onCreate(db);
     }
 
-    public boolean insertSetting  (String UserName, String Password)
+    public boolean insertLoginSetting  (String UserName, String Password)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PK_COLUMN_USERNAME, UserName);
         contentValues.put(COLUMN_PASSWORD, Password);
-        db.insert(TABLE_NAME, null, contentValues);
+        db.insert(TABLE_LOGIN, null, contentValues);
         return true;
     }
 
-    public int numberOfRows(){
+    public int numberOfRowsLogin(){
         SQLiteDatabase db = this.getReadableDatabase();
-        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        int numRows = (int) DatabaseUtils.queryNumEntries(db, TABLE_LOGIN);
         return numRows;
     }
 
-    public boolean updateSetting (String UserName, String Password)
+    public boolean updateLoginSetting (String UserName, String Password)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(PK_COLUMN_USERNAME, UserName);
         contentValues.put(COLUMN_PASSWORD, Password);
-        db.update(TABLE_NAME, contentValues, PK_COLUMN_USERNAME + " = ? ",
+        db.update(TABLE_LOGIN, contentValues, PK_COLUMN_USERNAME + " = ? ",
                 new String[] { UserName } );
         return true;
     }
@@ -70,12 +71,12 @@ public class MainDataBase extends SQLiteOpenHelper {
     public Integer deleteSetting (String UserName)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_NAME,
+        return db.delete(TABLE_LOGIN,
                 PK_COLUMN_USERNAME + " = ? ",
                 new String[] { UserName });
     }
 
-    public ArrayList<HashMap<String, Object>> getSettings(String pkUserName, String pkPassword)
+    public ArrayList<HashMap<String, Object>> getLoginSettings(String pkUserName, String pkPassword)
     {
         ArrayList<HashMap<String, Object>> settings_list = new ArrayList<>();
         HashMap<String, Object> map;
@@ -83,9 +84,9 @@ public class MainDataBase extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
         if (pkUserName == null)
-            query = "select * from " + TABLE_NAME;
+            query = "select * from " + TABLE_LOGIN;
         else
-            query = "select * from " + TABLE_NAME + " where UserName = '" + pkUserName + "' and Password = '" + pkPassword + "'";
+            query = "select * from " + TABLE_LOGIN + " where UserName = '" + pkUserName + "' and Password = '" + pkPassword + "'";
         Cursor res =  db.rawQuery(query, null);
         res.moveToFirst();
 

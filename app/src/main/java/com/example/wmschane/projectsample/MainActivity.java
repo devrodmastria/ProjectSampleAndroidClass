@@ -21,12 +21,7 @@ import com.example.wmschane.projectsample.dummy.RoomContent;
 public class MainActivity extends AppCompatActivity
     implements AlertsFragment.OnListFragmentInteractionListener, RoomFragment.OnListFragmentInteractionListener {
 
-    ProtectionDatabase pd;
-    MainDataBase md;
     DBHelper db;
-
-
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,12 +29,14 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pd = new ProtectionDatabase(getApplicationContext());
-        md = new MainDataBase(getApplicationContext());
-
         db = new DBHelper(getApplicationContext());
 
         boolean Setting;
+
+        if(db.numberOfRowsLogin() == 0) {
+            db.insertLoginSetting("Shawn","Rodrigo");
+        }
+
         if(db.numberOfRowsEnergy() == 0){
             for(int i = 1; i < 15; i++){
                 Setting = db.insertEnergySetting("room"+ i, DBHelper.STATE_OFF);
@@ -71,10 +68,11 @@ public class MainActivity extends AppCompatActivity
             Log.d("tagDB", "Boolean Insert DB temp " + Setting);
         }
 
-        boolean ProtectionSet;
-        for(int i = 1; i < 15; i++){
-            ProtectionSet = pd.updateSetting("Area "+ i,"off");
-            Log.d("tagDB", "Boolean DB ProtectionSet " + ProtectionSet);
+        if(db.numberOfRowsAccess() == 0){
+            for(int i = 1; i < 4; i++){
+                Setting = db.insertAccessSetting("Area"+ i, DBHelper.STATE_ON);
+                Log.d("tagDB", "Boolean DB Access " + Setting);
+            }
         }
 
         FragmentTransaction transaction;
@@ -88,7 +86,6 @@ public class MainActivity extends AppCompatActivity
         }else{
             startActivity(new Intent(this, LoginActivity.class));
         }
-//        getSupportActionBar().setTitle("Home");
     }
 
     @Override
