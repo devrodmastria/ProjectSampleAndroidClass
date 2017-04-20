@@ -103,9 +103,6 @@ public class AdminSchedulesFragment extends Fragment {
         }
 
         //////////////////////////////////////////////////////////// Sunday
-
-
-
         sunOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,21 +142,8 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-//                .setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), sunOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.SUN, sunOn.getText().toString(), sunOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         //////////////////////////////////////////////////////////// monday
-
-
-
         monOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,17 +163,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), monOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.MON, monOn.getText().toString(), monOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         monOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -211,22 +184,7 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), monOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.MON, monOn.getText().toString(), monOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         //////////////////////////////////////////////////////////// tuesday
-
-
-
-
         tueOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,17 +204,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), tueOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.TUE, tueOn.getText().toString(), tueOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         tueOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,22 +225,7 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), tueOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.TUE, tueOn.getText().toString(), tueOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         //////////////////////////////////////////////////////////// wednesday
-
-
-
-
         wedOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -313,17 +245,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), wedOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.WED, wedOn.getText().toString(), wedOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         wedOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,22 +266,7 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), wedOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.WED, wedOn.getText().toString(), wedOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         //////////////////////////////////////////////////////////// thursday
-
-
-
-
         thuOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -380,17 +286,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), thuOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.THR, thuOn.getText().toString(), thuOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         thuOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -412,22 +307,7 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), thuOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.THR, thuOn.getText().toString(), thuOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         //////////////////////////////////////////////////////////// Friday
-
-
-
-
         friOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -447,17 +327,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), friOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.FRI, friOn.getText().toString(), friOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         friOff.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -479,22 +348,7 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), friOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.FRI, friOn.getText().toString(), friOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         //////////////////////////////////////////////////////////// saturday
-
-
-
-
         satOn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -515,17 +369,6 @@ public class AdminSchedulesFragment extends Fragment {
             }
         });
 
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), satOn.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.SAT, satOn.getText().toString(), satOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
-
         satOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -545,17 +388,6 @@ public class AdminSchedulesFragment extends Fragment {
                 newFragment.show(getFragmentManager(),"TimePicker");
             }
         });
-
-//                setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if(actionId == EditorInfo.IME_ACTION_DONE){
-//                    Toast.makeText(getActivity(), satOff.getText(), Toast.LENGTH_SHORT).show();
-//                    db.updateAdmEnergySetting(DBHelper.SAT, satOn.getText().toString(), satOff.getText().toString());
-//                }
-//                return false;
-//            }
-//        });
 
         return view;
     }

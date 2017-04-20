@@ -36,16 +36,6 @@ public class AdminFragment extends Fragment {
                 transaction.addToBackStack(null);
                 transaction.commit();
 
-//                AdminHealthFragment newFrag = new AdminHealthFragment();
-//                Bundle args = new Bundle();
-//                args.putString("from", "admin");
-//                newFrag.setArguments(args);
-//
-//                FragmentTransaction transaction;
-//                transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(android.R.id.content, newFrag);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
             }
         });
         Button energyBtn = (Button)view.findViewById(R.id.energyButton);
@@ -81,17 +71,7 @@ public class AdminFragment extends Fragment {
                 transaction.replace(android.R.id.content, newFrag);
                 transaction.addToBackStack(null);
                 transaction.commit();
-//
-//                AdminProtectFragment newFrag = new AdminProtectFragment();
-//                Bundle args = new Bundle();
-//                args.putString("from", "admin");
-//                newFrag.setArguments(args);
-//
-//                FragmentTransaction transaction;
-//                transaction = getFragmentManager().beginTransaction();
-//                transaction.replace(android.R.id.content, newFrag);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+
             }
         });
 
