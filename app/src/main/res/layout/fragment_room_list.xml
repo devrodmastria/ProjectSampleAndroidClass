@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutManager="LinearLayoutManager"
-    tools:context="com.example.wmschane.projectsample.RoomFragment"
-    android:name="com.example.wmschane.projectsample.RoomFragment"
-    android:layout_marginLeft="16dp"
-    android:layout_marginRight="16dp"
-    tools:listitem="@layout/fragment_room"/>
+    android:orientation="vertical">
 
-    <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:textSize="18sp"-->
-            <!--android:text="SelectRoom"-->
-            <!--android:gravity="center"-->
-            <!--android:background="#dddddd"/>-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:height="40sp"
+        android:text="Select Room"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:background="#dddddd"/>
 
-<!--</android.support.v7.widget.RecyclerView>-->
+    <ListView
+        android:id="@+id/listView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingRight="16dp"
+        android:paddingLeft="16dp"/>
 
-
+</LinearLayout>

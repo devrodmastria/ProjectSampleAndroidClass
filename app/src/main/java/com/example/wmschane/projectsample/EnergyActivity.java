@@ -15,7 +15,13 @@ public class EnergyActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setTitle("Energy");
+        Intent intent = getIntent();
+        if(intent != null){
+            String title = intent.getStringExtra(MainActivity.TITLE);
+            if (title != null){
+                getSupportActionBar().setTitle(title);
+            }
+        }
 
         FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
@@ -35,16 +41,24 @@ public class EnergyActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.admin_menu:
-                startActivity(new Intent(this, AdminActivity.class));
+                Intent intent = new Intent(this, AdminActivity.class);
+                intent.putExtra(MainActivity.TITLE, MainActivity.ADMIN);
+                startActivity(intent);
                 return true;
             case R.id.health_menu:
-                startActivity(new Intent(this, HealthActivity.class));
+                intent = new Intent(this, HealthActivity.class);
+                intent.putExtra(MainActivity.TITLE, MainActivity.HEALTH);
+                startActivity(intent);
                 return true;
             case R.id.energy_menu:
-                startActivity(new Intent(this, EnergyActivity.class));
+                intent = new Intent(this, EnergyActivity.class);
+                intent.putExtra(MainActivity.TITLE, MainActivity.ENERGY);
+                startActivity(intent);
                 return true;
             case R.id.protection_menu:
-                startActivity(new Intent(this, ProtectionActivity.class));
+                intent = new Intent(this, ProtectionActivity.class);
+                intent.putExtra(MainActivity.TITLE, MainActivity.PROTECTION);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

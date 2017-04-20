@@ -19,15 +19,21 @@ import com.example.wmschane.projectsample.dummy.RoomContent;
  */
 
 public class MainActivity extends AppCompatActivity
-    implements AlertsFragment.OnListFragmentInteractionListener, RoomFragment.OnListFragmentInteractionListener {
+    implements AlertsFragment.OnListFragmentInteractionListener{
 
     DBHelper db;
+    public  static final String TITLE = "title";
+    public  static final String ADMIN = "Adm";
+    public  static final String ENERGY = "Ene";
+    public  static final String HEALTH = "Hea";
+    public  static final String PROTECTION = "Pro";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle("HC"); //HC is Home Control
 
         db = new DBHelper(getApplicationContext());
 
@@ -148,37 +154,30 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-//        FragmentTransaction transaction;
-//        transaction = getFragmentManager().beginTransaction();
-//        transaction.setCustomAnimations(R.animator.enter_from_right, R.animator.exit_to_left);
         switch (item.getItemId()) {
             case R.id.admin_menu:
-//                transaction.replace(R.id.mainFrame, new AdminFragment());
-//                transaction.commit();
-                startActivity(new Intent(this, AdminActivity.class));
+                Intent intent = new Intent(this, AdminActivity.class);
+                intent.putExtra(TITLE, ADMIN);
+                startActivity(intent);
                 return true;
             case R.id.health_menu:
-//                Toast.makeText(this, "Nope Health", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(this, HealthActivity.class));
+                intent = new Intent(this, HealthActivity.class);
+                intent.putExtra(TITLE, HEALTH);
+                startActivity(intent);
                 return true;
             case R.id.energy_menu:
-//                transaction.replace(R.id.mainFrame, new EnergyFragment());
-//                transaction.commit();
-                startActivity(new Intent(this, EnergyActivity.class));
+                intent = new Intent(this, EnergyActivity.class);
+                intent.putExtra(TITLE, ENERGY);
+                startActivity(intent);
                 return true;
             case R.id.protection_menu:
-//                transaction.replace(R.id.mainFrame, new ProtectionFragment());
-//                transaction.commit();
-                startActivity(new Intent(this, ProtectionActivity.class));
+                intent = new Intent(this, ProtectionActivity.class);
+                intent.putExtra(TITLE, PROTECTION);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-
-    @Override
-    public void onListFragmentInteraction(RoomContent.DummyItem item) {
-
     }
 
     @Override

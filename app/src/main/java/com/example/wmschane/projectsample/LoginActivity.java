@@ -69,9 +69,7 @@ public class LoginActivity extends AppCompatActivity  {
         String p = data.get(0).get(DBHelper.COLUMN_PASSWORD).toString();
 
         if (Name.equals(s) && Pass.equals(p)){
-
             preferences.edit().putBoolean("authentic", true).apply();
-
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }else{
